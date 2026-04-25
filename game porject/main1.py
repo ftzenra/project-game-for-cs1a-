@@ -45,6 +45,8 @@ while True:
 
                 if utility.cheacker():
                     utility.clear_screen()
+                    print("You Won!")
+                    print()
                     show_quotes()
                     print("\nPress Enter to return to main menu")
                     input()
@@ -65,7 +67,7 @@ while True:
                 if utility.health == 0:
                     print("Game Over!")
                     print("answer is ",correct_word)
-                    print(f"final score{utility.score}")
+                    print(f"final score: {utility.score}")
                     print("\npress any key to go back")
                     input()
                     utility.clear_screen()
@@ -78,12 +80,12 @@ while True:
                     hint()
                 elif hint_choice == "n":
                     utility.clear_screen()
-                    print("did not use hint")
+                    print("====did not use hint===")
                 elif utility.hints <= 0:
                     utility.clear_screen()
-                    print("0 hints")
+                    print("===0 hints===")
                 else:
-                    print("wrong input")
+                    print("===wrong input===")
                 
     elif choice == "2":
         utility.clear_screen()
