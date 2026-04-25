@@ -2,6 +2,7 @@ import os
 import randomizer
 import random
 import importlib
+
 health = 3
 hints = 1
 word_pass = 0
@@ -23,16 +24,17 @@ def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def rules():
-    print("Unscramble the letters to form a word.")
-    print("You have 3 health points and gain rewards for correct answers.")
-    print("rewards can be,health,hints,or points, level pass")
+    print("Game Rules:\n")
+    print('''You have 3 health points and 1 Hint!
+Unscramble the letters to form a word and gain rewards for each correct answer!
+Rewards can be health, hints, points, or level pass.''')
 
 def welcome():
-    print("Welcome to the Word Scramble Game!")
-    print("Try to unscramble the words and earn points.")
+    print("Welcome to Word Scramble Game!")
+    print("Unscramble the words to earn points and rewards!")
 
 def show_quotes():
-    print(f"here quote you created{ randomizer.quote()}")
+    print(f"here is the quote you created: { randomizer.quote()}")
    
 
 def cheacker():
@@ -40,4 +42,3 @@ def cheacker():
 
 def current():
     return randomizer.scrambled_words[current_index]
-    

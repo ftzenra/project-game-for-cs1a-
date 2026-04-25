@@ -55,8 +55,7 @@ while True:
                 else:
                     print(f"\nNext word coming up...")
                     input("Press Enter to continue")
-                    utility.clear_screen()
-                
+                    utility.clear_screen()               
 
             else:
                 print("Wrong!")
@@ -90,7 +89,7 @@ while True:
     elif choice == "2":
         utility.clear_screen()
         utility.rules()
-        print("\nPress Enter to go back")
+        print("\n\nPress Enter to go back")
         input()
         utility.clear_screen()
         
