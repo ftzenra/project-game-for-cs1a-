@@ -23,15 +23,15 @@ mode2 = [
     },
     {
         "words": ["life", "happens", "coffee", "works"], 
-        "quotes": "Life happens, Coffee helps"
+        "quote": "Life happens, Coffee helps"
     }, 
     {
         "words": ["stop", "wishing", "start", "doing"],
-        "quotes": "Stop Wishing, Start Doing"
+        "quote": "Stop Wishing, Start Doing"
     },
     {
         "words": ["push", "harder", "than", "yesterday"], 
-        "quotes": "Push harder than yesterday"
+        "quote": "Push harder than yesterday"
     }, 
     {
         "words": ["courage", "doesnt", "always", "roar"], 
@@ -43,15 +43,15 @@ mode2 = [
     },
     {
         "words": ["happiness", "depends", "on", "ourselves"],
-        "quotes": "Happiness Depends on Ourselves"
+        "quote": "Happiness Depends on Ourselves"
     },
     {
         "words": ["grow", "through", "what", "goes"],
-        "quotes": "Grow throw what goes"
+        "quote": "Grow through what goes"
     },
     {
         "words": ["whatever", "happens", "take", "responsibility"],
-        "quotes": "Whatever Happens, Take Responsibility"
+        "quote": "Whatever Happens, Take Responsibility"
     },
     {
         "words": ["face", "challenge", "be", "victorious"],
