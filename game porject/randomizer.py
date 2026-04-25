@@ -12,10 +12,8 @@ chosen = random.choice(Datamodule.level3)
 words = chosen["words"]
 quote = chosen["quote"]
 
-w1 = scramble(words[0])
-w2 = scramble(words[1])
-w3 = scramble(words[2])
-w4 = scramble(words[3])
-
-
-    
+scrambled_words = [scramble(words[0]), scramble(words[1]), scramble(words[2]), scramble(words[3])]
+w1 = scrambled_words[0]
+w2 = scrambled_words[1]
+w3 = scrambled_words[2]
+w4 = scrambled_words[3]
