@@ -13,6 +13,7 @@ correct_words = [False, False, False, False]
 
 # pang reset so everytime mag laro di same value
 def reset_game():
+    global health, hints, word_pass, score, revealed_count
     health = 3
     hints = 1
     word_pass = 0
