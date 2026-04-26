@@ -35,7 +35,7 @@ Unscramble the letters to form a word and
 gain rewards for each correct answer!
 
 Rewards can be health, hints, points, or 
-even level pass.''')
+even level pass!''')
     print("="*41)
 
 #welcome dialogues

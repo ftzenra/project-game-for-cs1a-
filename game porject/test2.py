@@ -251,8 +251,7 @@ def main():
     while True:
         utility.clear_screen
         utility.welcome
-        print("========== THE SCRAMBLE WORD ===========\n")
-        print("="*40)
+        print("\n========== THE SCRAMBLE WORD ===========\n")
         print("1. GAME MODES")
         print("2. RULES")
         print("3. EXIT")
@@ -264,7 +263,7 @@ def main():
             utility.clear_screen()
             while True:
                 utility.clear_screen()
-                print("=============== GAME MODE ================")
+                print("=============== GAME MODE ==============\n")
                 print("1. INFINITE")
                 print("2. QOUTE BUILDER")
                 print("3. EXTREME")
@@ -295,7 +294,7 @@ def main():
             utility.clear_screen()
         elif choice=="3":
             utility.clear_screen()
-            print ("thank you for playing")
+            print ("Thank you for playing our game!")
             break
         else:
             print("wrong input")
