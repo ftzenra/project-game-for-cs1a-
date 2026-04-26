@@ -5,7 +5,7 @@ import utility
 import OOP
 
 def classic_play():
-    """Playingfinite mode with rising difficulty"""
+    """Playing Infinite mode with rising difficulty"""
     game = OOP.InfiniteMode()
     utility.clear_screen()
 
@@ -244,11 +244,11 @@ def main():
     while True:
         utility.clear_screen
         utility.welcome
-        print("===============CS1A GAME================")
+        print("========== THE SCRAMBLE WORD ===========\n")
         print("="*40)
-        print("1.GAME MODES")
-        print("2.RULES")
-        print("3.EXIT")
+        print("1. GAME MODES")
+        print("2. RULES")
+        print("3. EXIT")
         print("="*40)
         
         choice =input("Enter your Choice: ")
@@ -257,11 +257,11 @@ def main():
             utility.clear_screen()
             while True:
                 utility.clear_screen()
-                print("===============GAME MODE================")
-                print("1.INFINITE")
-                print("2.QOUTE BUILDER")
-                print("3.EXTREME")
-                print("4.BACK")
+                print("=============== GAME MODE ================")
+                print("1. INFINITE")
+                print("2. QOUTE BUILDER")
+                print("3. EXTREME")
+                print("4. BACK")
                 print("="*40)
 
                 choice1 = input("Enter your Choice: ")
@@ -286,8 +286,9 @@ def main():
             print("\nPress Enter to go back")
             input()
             utility.clear_screen()
-        elif choice==3:
+        elif choice == "3":
             print ("thank you for playing")
+            break
         else:
             print("wrong input")
 

@@ -24,13 +24,18 @@ def reset_game():
 # eto func ko pang clear screen
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
-    
+
 #rulesss
 def rules():
-    print("Game Rules:\n")
+    print("============== GAME RULES ===============\n")
     print('''You have 3 health points and 1 Hint!
-Unscramble the letters to form a word and gain rewards for each correct answer!
-Rewards can be health, hints, points, or even level pass.''')
+          
+Unscramble the letters to form a word and 
+gain rewards for each correct answer!
+
+Rewards can be health, hints, points, or 
+even level pass.''')
+    print("="*41)
 
 #welcome dialogues
 def welcome():
