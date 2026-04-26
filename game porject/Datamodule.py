@@ -62,3 +62,14 @@ mode2 = [
         "quote": "Look before you leap"
     },
 ]
+
+#_Mode3_
+
+mode3 = [
+    "prosperity", "immaculate", "imprudence", "absurdity",
+    "vaccination", "quadrillion", "beneficiary", "mathematics", "imagination",
+    "biodiversity", "bibliography", "deteriorated", "accomplished", "circumference",
+    "specification", "inappropriate", "controversial", "enlightenment", "participation",
+    "classification", "generalization", "accountability", "subconsciously", "representative",
+    "acknowledgeable", "confidentiality", "congratulations", "experimentation", "characteristics"
+]
