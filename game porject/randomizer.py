@@ -36,7 +36,8 @@ def gifts():
         reward_type = "word_pass"
     
     return reward_type, pick_reward
-reward_type, reward_value = gifts()
+def reward():
+    reward_type, reward_value = gifts()
 
 
 
