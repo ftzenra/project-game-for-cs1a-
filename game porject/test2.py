@@ -49,7 +49,6 @@ def classic_play():
                 input()
         else:
             print("wrong answer")
-            game.health = utility.health
             game.health -=1
 
             if game.is_game_over():
@@ -131,7 +130,6 @@ def Qoute_builder():
                 input()
         else:
             print("wrong answer")
-            game.health = utility.health
             game.health -=1
 
             if game.is_game_over():
