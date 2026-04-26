@@ -26,21 +26,43 @@ def reset_game():
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
-#rulesss
+#rules
 def rules():
-    print("============== GAME RULES ===============\n")
-    print('''You have 3 health points and 1 Hint!
-          
-Unscramble the letters to form a word and 
-gain rewards for each correct answer!
+    print("======================== GAME RULES =========================\n")
+    print('''        
+Unscramble the letters to form a word and gain rewards for 
+each correct answer!
 
-Rewards can be health, hints, points, or 
-even level pass!''')
-    print("="*41)
+Rewards can be health, hints, or even level pass!''')
+    print("\n\n======================== GAME MODES =========================\n")
+    print('''        
+MODE 1: Infinity and Beyond! ∞
+
+Player has: 3HP, 1 Hint, and 0 Word Pass
+                    
+Unscramble words, and for every 5 correct words, your level 
+increases and so does the word length until you reach the 
+10-letter words.\n''')
+    print("-"*60)
+    print('''        
+MODE 2: Complete the Quote! 
+
+Player has: 3HP, 3 Hints, and 2 Word Passes
+
+Unscramble 4 words to complete a quote that'll insipre you!\n''')
+    print("-"*60)
+    print('''        
+MODE 3: Extremers Challenge!
+
+Player has: 3HP, 1 Hint, and 1 Word Pass
+          
+Unscramble deep words with at least 10-letters to challenge
+your vocabulary!\n''')
+    print("="*60)
 
 #welcome dialogues
 def welcome():
-    print("Welcome to Word Scramble Game!")
+    print("Welcome to The Word Scramble Game!")
     print("Unscramble the words to earn points and rewards!")
 
 #pang show ng quotes
@@ -51,6 +73,6 @@ def show_quotes():
 def cheacker():
     return all(correct_words)
 
-# eto current na na letter sa scrambled, gamit to sa hint para mabigay mga letters
+# eto current na letter sa scrambled, gamit to sa hint para mabigay mga letters
 def current():
     return randomizer.scrambled_words[current_index]

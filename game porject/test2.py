@@ -26,10 +26,10 @@ def classic_play():
         scrambled = game.scramble_word(currentword)
         print(f"UNSCRAMBLE: {scrambled}")
         
-        answer = input("input answer: ").lower().strip()
+        answer = input("ANSWER: ").lower().strip()
 
         if game.check_answer(answer,currentword):
-            print("CORRECT")
+            print("\nCORRECT!\n")
             utility.score = game.score
             game.score +=1
 
@@ -40,7 +40,7 @@ def classic_play():
             if level_up:
                 print({level_up})
                 if "VICTORY" in level_up:
-                    print(f"FINAL SCORE: {game.score} ")
+                    print(f"\nFINAL SCORE: {game.score} ")
                     input("\nPress Enter to continue...")
                     return
                 input("Press Enter to continue...")
@@ -53,18 +53,19 @@ def classic_play():
 
             if game.is_game_over():
                 utility.clear_screen()
-                print(f"\n GAME OVER! Final Score: {game.score} ")
+                print(f"\nGAME OVER! Final Score: {game.score} ")
                 print(f"The correct word was: {currentword}")
                 print("\nPress any key to go back...")
                 input()
                 return
             utility.clear_screen()
             print(f"\nWant to use a hint? (y/n) - {game.hints} hints available")
-            hint_choice = input("choice:").lower().strip()
+            hint_choice = input("> ").lower().strip()
             if hint_choice == "y" and game.hints> 0:
                 utility.clear_screen()
                 hint = game.show_hint(currentword)
                 if hint:
+                    print(f"UNSCRAMBLE: {scrambled}")
                     print(f"🔍 Hint: {hint}")
             elif game.hints <= 0:
                 utility.clear_screen()
@@ -76,11 +77,11 @@ def classic_play():
                 utility.clear_screen()
                 print("wrong input")
             print(f"Want to use word pass? (y/n) - {game.word_passes} available")
-            pass_choice = input().lower().strip()
+            pass_choice = input("> ").lower().strip()
             if pass_choice == "y" and game.word_passes > 0:
                 game.word_passes -= 1
                 utility.word_pass = game.word_passes
-                print(f" The word is: {currentword} ")
+                print(f"The word is: {currentword} ")
             
             input("\nPress Enter to continue...")
 
@@ -109,10 +110,10 @@ def Qoute_builder():
         scrambled = game.scramble_word(currentword)
         print(f"UNSCRAMBLE: {scrambled}")
         
-        answer = input("input answer: ").lower().strip()
+        answer = input("ANSWER: ").lower().strip()
 
         if game.check_answer(answer,currentword):
-            print("CORRECT")
+            print("\nCORRECT\n")
             utility.score = game.score
             game.score +=1
 
@@ -122,8 +123,8 @@ def Qoute_builder():
             complete_msg = game.next_word()
             if complete_msg:
                 print(f"\n{complete_msg}")
-                print(f"\n FULL QUOTE: {game.get_complete_quote()} ")
-                print(f"\n FINAL SCORE: {game.score} ")
+                print(f"\nFULL QUOTE: {game.get_complete_quote()} ")
+                print(f"\nFINAL SCORE: {game.score} ")
                 input("\nPress Enter to continue...")
                 return
             else:
@@ -135,18 +136,19 @@ def Qoute_builder():
 
             if game.is_game_over():
                 utility.clear_screen()
-                print(f"\n GAME OVER! Final Score: {game.score} ")
+                print(f"\nGAME OVER! Final Score: {game.score} ")
                 print(f"The correct word was: {currentword}")
                 print("\nPress any key to go back...")
                 input()
                 return
             utility.clear_screen()
             print(f"\nWant to use a hint? (y/n) - {game.hints} hints available")
-            hint_choice = input("choice:").lower().strip()
+            hint_choice = input("> ").lower().strip()
             if hint_choice == "y" and game.hints> 0:
                 utility.clear_screen()
                 hint = game.show_hint(currentword)
                 if hint:
+                    print(f"UNSCRAMBLE: {scrambled}")
                     print(f"🔍 Hint: {hint}")
             elif game.hints <= 0:
                 print("===0 hints===")
@@ -156,12 +158,12 @@ def Qoute_builder():
             else:
                 print("wrong input")
 
-            print(f"\n Want to use word pass? (y/n) - {game.word_passes} available")
-            pass_choice = input().lower()
+            print(f"\nWant to use word pass? (y/n) - {game.word_passes} available")
+            pass_choice = input("> ").lower()
             if pass_choice == 'y' and game.word_passes > 0:
                 game.word_passes -= 1
                 utility.word_pass = game.word_passes
-                print(f" The word is: {currentword} ")
+                print(f"\nThe word is: {currentword} ")
             
             input("\nPress Enter to continue...")
 
@@ -187,10 +189,10 @@ def extreme():
         scrambled = game.scramble_word(currentword)
         print(f"UNSCRAMBLE: {scrambled}")
         
-        answer = input("input answer: ").lower().strip()
+        answer = input("ANSWER: ").lower().strip()
 
         if game.check_answer(answer,currentword):
-            print("CORRECT")
+            print("\nCORRECT\n")
             utility.score = game.score
             game.score +=1
 
@@ -226,9 +228,10 @@ def extreme():
                 utility.clear_screen()
                 hint = game.show_hint(currentword)
                 if hint:
+                    print(f"UNSCRAMBLE: {scrambled}")
                     print(f"🔍 Hint: {hint}")
             elif game.hints <= 0:
-                print("===0 hints===")
+                print("=== no more hints left ===")
             elif hint_choice == "n":
                 utility.clear_screen()
                 print("DID NOT USE HINT")
@@ -244,11 +247,12 @@ def extreme():
             
             input("\nPress Enter to continue...")
 
+
 def main():
     while True:
-        utility.clear_screen
-        utility.welcome
-        print("\n========== THE SCRAMBLE WORD ===========\n")
+        utility.clear_screen()
+        utility.welcome()
+        print("\n======== THE WORD SCRAMBLE GAME ========\n")
         print("1. GAME MODES")
         print("2. RULES")
         print("3. EXIT")
@@ -298,11 +302,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
-
-  
-
-
-

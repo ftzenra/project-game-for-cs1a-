@@ -67,7 +67,7 @@ class InfiniteMode(GameMode):
         """Load words for current level and shuffle them randomly"""
         if self.current_level in self.level_words:
             self.words = self.level_words[self.current_level].copy()  # Make a copy
-            random.shuffle(self.words)  #mahala to pang random ng word kanina kasi same word lagi e
+            random.shuffle(self.words)  #mahalaga to pang random ng word kanina kasi same word lagi e
             self.current_word_index = 0
             self.words_completed = 0
     
@@ -100,6 +100,7 @@ class InfiniteMode(GameMode):
     
     def get_mode_info(self):
         return f"Level {self.current_level}/7 - Word {self.words_completed + 1}/5"
+
 
 # Mode 2: eto nag build ng qoutes
 class QuoteBuilderMode(GameMode):
@@ -169,9 +170,9 @@ class ExtremeMode(GameMode):
     
     def load_extreme_words(self):
         """Load the longest words from all levels"""
-        all_words = (Datamodule.level1 + Datamodule.level2 + Datamodule.level3 + 
-                    Datamodule.level4 + Datamodule.level5 + Datamodule.level6 + 
-                    Datamodule.level7)
+        all_words = (Datamodule.mode3 + Datamodule.mode3 + Datamodule.mode3 + 
+                    Datamodule.mode3 + Datamodule.mode3 + Datamodule.mode3 + 
+                    Datamodule.mode3)
         
         # pang filter para dapat 8 letter words lang sa extreme
         self.words = [word for word in all_words if len(word) >= 7]

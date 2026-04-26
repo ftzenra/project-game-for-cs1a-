@@ -64,9 +64,8 @@ mode2 = [
 ]
 
 #_Mode3_
-
 mode3 = [
-    "prosperity", "immaculate", "imprudence", "absurdity",
+    "prosperity", "immaculate", "imprudence", "abbreviate",
     "vaccination", "quadrillion", "beneficiary", "mathematics", "imagination",
     "biodiversity", "bibliography", "deteriorated", "accomplished", "circumference",
     "specification", "inappropriate", "controversial", "enlightenment", "participation",

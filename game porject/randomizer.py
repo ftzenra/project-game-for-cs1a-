@@ -2,7 +2,7 @@ import utility
 import random
 import Datamodule
 
-# eto gawa nya na list then iterarte nya ung bawat letter tapos ung join para combine
+# eto gawa nya na list then iterate nya ung bawat letter tapos ung join para combine
 def scramble(w):
     letters = list(w)
     random.shuffle(letters)
@@ -22,14 +22,14 @@ def get_reward_by_rarity():
     """Select reward based on rarity percentages using random number"""
     roll = random.randint(1, 100)
     
-    if roll <= 60:  # basta 60% chance to un ung rarity nya
+    if roll <= 60:  # 60% chance to un ung rarity nya
         return "health"
     elif roll <= 90:  # dto 30 percent ata
         return "hints"
     else:  # tas eto sure ako 10 percent
         return "word_pass"
 
-#gift to basta yun
+#gift
 def gifts():
     # mga gifts lang to naka def pra madali tawagin
     reward_type = get_reward_by_rarity()
@@ -38,19 +38,19 @@ def gifts():
         utility.health += 1
         reward_value = 1
         # Common reward message
-        print(f" COMMON REWARD: +1 Health!")
-        
+        print(f"REWARD: COMMON +1 Health!")
+
     elif reward_type == "hints":
         utility.hints += 1
         reward_value = 1
         # Rare reward message
-        print(f"RARE REWARD! +1 Hint!")
+        print(f"REWARD: RARE! +1 Hint!")
         
     elif reward_type == "word_pass":
         utility.word_pass += 1
         reward_value = 1
         
-        print(f"🌟🌟🌟 EPIC REWARD! 🌟🌟🌟 +1 Word Pass!")
+        print(f"REWARD: 🌟🌟🌟 EPIC 🌟🌟🌟 +1 Word Pass!")
     
     return reward_type, reward_value
 
