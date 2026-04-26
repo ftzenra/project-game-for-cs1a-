@@ -15,7 +15,7 @@ level6 = ["judgement", "authority", "happiness", "intention", "education"]
 
 level7 = ["prosperity", "dedication", "experience", "appearance", "everything"]
 
-#_Mode_2
+
 mode2 = [
     {
         "words": ["high", "tides", "good", "vibes"],
@@ -60,39 +60,5 @@ mode2 = [
     {
         "words": ["look", "before", "you", "leap"],
         "quote": "Look before you leap"
-    }
-]
-
-m2rewards = [
-    "hp+1", "hint+1", #common
-    "bonus points", "hp+2", "hint+2", "hint+3", #uncommon
-    "hp+3", "pass" #rare
-]
-
-#_Mode3_
-mode3 = [
-    {
-        "words": ["nothing", "becomes", "possible", "therefore"],
-        "quote": "Nothing becomes possible therefore"
-    },
-    {
-        "words": ["believe", "yourself", "nothing", "cannot"],
-        "quote": "Believe yourself nothing cannot"
-    },
-    {
-        "words": ["courage", "kindness", "strength", "victory"],
-        "quote": "Courage kindness strength victory"
-    },
-    {
-        "words": ["dreams", "greatest", "happiness", "forward"],
-        "quote": "Dreams greatest happiness forward"
-    },
-    {
-        "words": ["darkest", "morning", "sunrise", "beautiful"],
-        "quote": "Darkest morning sunrise beautiful"
-    },
-    {
-        "words": ["always", "remember", "tomorrow", "victory"],
-        "quote": "Always remember tomorrow victory"
     },
 ]

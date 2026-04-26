@@ -50,7 +50,7 @@ class GameMode:
 # Mode 1: per level pero tawag namin infinite 
 class InfiniteMode(GameMode):
     def __init__(self):
-        super().__init__(health=5)
+        super().__init__(health=3)
         self.current_level = 1
         self.level_words = {
             1: Datamodule.level1,
@@ -104,7 +104,7 @@ class InfiniteMode(GameMode):
 # Mode 2: eto nag build ng qoutes
 class QuoteBuilderMode(GameMode):
     def __init__(self):
-        super().__init__(health=4)
+        super().__init__(health=3)
         self.hints = 3
         self.word_passes = 2
         utility.hints = self.hints
