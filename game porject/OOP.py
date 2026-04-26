@@ -46,7 +46,7 @@ class GameMode:
         
         return f"{reward_type} = +1"
 
-e 
+
 # Mode 1: per level pero tawag namin infinite 
 class InfiniteMode(GameMode):
     def __init__(self):

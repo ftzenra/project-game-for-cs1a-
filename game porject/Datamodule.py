@@ -15,7 +15,7 @@ level6 = ["judgement", "authority", "happiness", "intention", "education"]
 
 level7 = ["prosperity", "dedication", "experience", "appearance", "everything"]
 
-
+#_Mode_2
 mode2 = [
     {
         "words": ["high", "tides", "good", "vibes"],
