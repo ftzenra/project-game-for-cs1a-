@@ -8,40 +8,60 @@ def scramble(w):
     random.shuffle(letters)
     return ''.join(letters)
 
-# Pick random quote
-chosen = random.choice(Datamodule.mode2)
-words = chosen["words"]
-quote = chosen["quote"]
+# Rarity system
+# Common (Health) = 60% chance
+# Rare (Hints) = 30% chance  
+# Epic (Word Pass) = 10% chance
+RARITY_CHANCES = {
+    "health": 60,      # COMMON
+    "hints": 30,       # RARE
+    "word_pass": 10    # EPIC
+}
 
-# eto ung iteration ng bawat letter 
-scrambled_words = [scramble(words[0]), scramble(words[1]), scramble(words[2]), scramble(words[3])]
-w1 = scrambled_words[0]
-w2 = scrambled_words[1]
-w3 = scrambled_words[2]
-w4 = scrambled_words[3]
+def get_reward_by_rarity():
+    """Select reward based on rarity percentages using random number"""
+    roll = random.randint(1, 100)
+    
+    if roll <= 60:  # basta 60% chance to un ung rarity nya
+        return "health"
+    elif roll <= 90:  # dto 30 percent ata
+        return "hints"
+    else:  # tas eto sure ako 10 percent
+        return "word_pass"
 
 #gift to basta yun
 def gifts():
-    rewards = [utility.health, utility.hints, utility.word_pass]
-    pick_reward = random.choice(rewards)
+    # mga gifts lang to naka def pra madali tawagin
+    reward_type = get_reward_by_rarity()
     
-    if pick_reward == utility.health:
+    if reward_type == "health":
         utility.health += 1
-        reward_type = "health"
-    elif pick_reward == utility.hints:
+        reward_value = 1
+        # Common reward message
+        print(f" COMMON REWARD: +1 Health!")
+        
+    elif reward_type == "hints":
         utility.hints += 1
-        reward_type = "hints"
-    elif pick_reward == utility.word_pass:
+        reward_value = 1
+        # Rare reward message
+        print(f"RARE REWARD! +1 Hint!")
+        
+    elif reward_type == "word_pass":
         utility.word_pass += 1
-        reward_type = "word_pass"
+        reward_value = 1
+        
+        print(f"🌟🌟🌟 EPIC REWARD! 🌟🌟🌟 +1 Word Pass!")
     
-    return reward_type, pick_reward
+    return reward_type, reward_value
+
 def reward():
     reward_type, reward_value = gifts()
 
-
-
-
-
-
-
+# Function to get a random quote (called when game starts)
+def get_random_quote():
+    """Returns a random quote from mode2"""
+    chosen = random.choice(Datamodule.mode2)
+    words = chosen["words"]
+    quote = chosen["quote"]
+    scrambled_words = [scramble(words[0]), scramble(words[1]), scramble(words[2]), scramble(words[3])]
+    return chosen, words, quote, scrambled_words

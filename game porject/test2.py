@@ -34,7 +34,6 @@ def classic_play():
             game.score +=1
 
             reward = game.give_reward()
-            print(f"your got random gift {reward}")
 
             # incase of level up
             level_up = game.next_word()
@@ -118,7 +117,6 @@ def Qoute_builder():
             game.score +=1
 
             reward = game.give_reward()
-            print(f"your got random gift {reward}")
 
             # incase of level up
             complete_msg = game.next_word()
@@ -197,7 +195,6 @@ def extreme():
             game.score +=1
 
             reward = game.give_reward()
-            print(f"your got random gift {reward}")
 
             # incase of level up
             level_up = game.next_word()

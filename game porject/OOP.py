@@ -46,7 +46,7 @@ class GameMode:
         
         return f"{reward_type} = +1"
 
-
+e 
 # Mode 1: per level pero tawag namin infinite 
 class InfiniteMode(GameMode):
     def __init__(self):
@@ -64,9 +64,10 @@ class InfiniteMode(GameMode):
         self.load_level()
     
     def load_level(self):
-        """Load words for current level"""
+        """Load words for current level and shuffle them randomly"""
         if self.current_level in self.level_words:
-            self.words = self.level_words[self.current_level]
+            self.words = self.level_words[self.current_level].copy()  # Make a copy
+            random.shuffle(self.words)  #mahala to pang random ng word kanina kasi same word lagi e
             self.current_word_index = 0
             self.words_completed = 0
     
@@ -99,7 +100,6 @@ class InfiniteMode(GameMode):
     
     def get_mode_info(self):
         return f"Level {self.current_level}/7 - Word {self.words_completed + 1}/5"
-
 
 # Mode 2: eto nag build ng qoutes
 class QuoteBuilderMode(GameMode):
