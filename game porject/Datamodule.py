@@ -95,4 +95,11 @@ mode3 = [
         "words": ["always", "remember", "tomorrow", "victory"],
         "quote": "Always remember tomorrow victory"
     },
+    {
+        "words": ["precious", "neighborhood", "rhythm", "conversation"],
+        "quote": "Precious neighborhood rhythm conversation"
+    },
+    {
+        
+    }
 ]
