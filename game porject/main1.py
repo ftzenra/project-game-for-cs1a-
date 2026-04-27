@@ -277,7 +277,7 @@ def main():
                 if choice1=="1":
                     while True:
                         utility.clear_screen()
-                        print("=============INFINITE MODE=============")
+                        print("=============INFINITE MODE=============\n")
                         print("1. START GAME")
                         print("2. GAME RULES")
                         print("3. BACK\n")
@@ -300,7 +300,7 @@ def main():
                 elif choice1=="2":
                     while True:
                         utility.clear_screen()
-                        print("=============QUOTE BUILDER MODE=============")
+                        print("=============QUOTE BUILDER MODE=============\n")
                         print("1. START GAME")
                         print("2. GAME RULES")
                         print("3. BACK\n")
@@ -323,7 +323,7 @@ def main():
                 elif choice1=="3":
                     while True:
                         utility.clear_screen()
-                        print("=============EXTREME MODE=============")
+                        print("=============EXTREME MODE=============\n")
                         print("1. START GAME")
                         print("2. GAME RULES")
                         print("3. BACK\n")
