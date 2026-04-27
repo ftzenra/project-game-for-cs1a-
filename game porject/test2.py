@@ -17,8 +17,9 @@ def classic_play():
     while not game.is_game_over() and not game.is_victory():
         utility.clear_screen()
         #kuha ng health saoop na galing naman sa utility
-        print(f"\nHealth: {game.health} |  Score: {game.score} |  Hints: {game.hints} |  Passes: {game.word_passes}")
-        print (game.get_mode_info())
+        print("=============INFINITE MODE=============")
+        print(f"\nHealth: {game.health} |  Score: {game.score} |  Hints: {game.hints} |  Passes: {game.word_passes}\n")
+        print(f"{game.get_mode_info()}\n")
         print("="*40)
 
         #istore ung scrable
@@ -87,7 +88,7 @@ def classic_play():
 
 
 # same lang code basically ung oop lang iba
-def Qoute_builder():
+def Quote_builder():
     """Play quote builder mode"""
     game = OOP.QuoteBuilderMode()
     utility.clear_screen()
@@ -101,8 +102,9 @@ def Qoute_builder():
     while not game.is_game_over() and not game.is_victory():
         utility.clear_screen()
         #kuha ng health saoop na galing naman sa utility
-        print(f"\nHealth: {game.health} |  Score: {game.score} |  Hints: {game.hints} |  Passes: {game.word_passes}")
-        print (game.get_mode_info())
+        print("=============QUOTE BUILDER MODE=============")
+        print(f"\nHealth: {game.health} |  Score: {game.score} |  Hints: {game.hints} |  Passes: {game.word_passes}\n")
+        print(f"{game.get_mode_info()}\n")
         print("="*40)
 
         #istore ung scrable
@@ -180,8 +182,8 @@ def extreme():
     while not game.is_game_over() and not game.is_victory():
         utility.clear_screen()
         #kuha ng health saoop na galing naman sa utility
-        print(f"\nHealth: {game.health} |  Score: {game.score} |  Hints: {game.hints} |  Passes: {game.word_passes}")
-        print (game.get_mode_info())
+        print(f"\nHealth: {game.health} |  Score: {game.score} |  Hints: {game.hints} |  Passes: {game.word_passes}\n")
+        print(f"{game.get_mode_info()}\n")
         print("="*40)
 
         #istore ung scrable
@@ -201,7 +203,7 @@ def extreme():
             # incase of level up
             level_up = game.next_word()
             if level_up:
-                print({level_up})
+                print(f"{level_up}")
                 if "VICTORY" in level_up:
                     print(f"FINAL SCORE: {game.score} ")
                     input("\nPress Enter to continue...")
@@ -255,7 +257,7 @@ def main():
         print("\n======== THE WORD SCRAMBLE GAME ========\n")
         print("1. GAME MODES")
         print("2. RULES")
-        print("3. EXIT")
+        print("3. EXIT\n")
         print("="*40)
         
         choice =input("Enter your Choice: ")
@@ -268,19 +270,79 @@ def main():
                 print("1. INFINITE")
                 print("2. QOUTE BUILDER")
                 print("3. EXTREME")
-                print("4. BACK")
+                print("4. BACK\n")
                 print("="*40)
 
                 choice1 = input("Enter your Choice: ")
                 if choice1=="1":
-                    utility.clear_screen()
-                    classic_play()
+                    while True:
+                        utility.clear_screen()
+                        print("=============INFINITE MODE=============")
+                        print("1. START GAME")
+                        print("2. GAME RULES")
+                        print("3. BACK\n")
+                        print("="*40)
+                        choice2 = input("Enter your Choice: ")
+                        if choice2=="1":
+                            utility.clear_screen()
+                            classic_play()
+                        elif choice2=="2":
+                            utility.clear_screen()
+                            utility.rules_mode1()
+                            print("\nPress Enter to go back")
+                            input()
+                        elif choice2=="3":
+                            utility.clear_screen()
+                            break
+                        else:
+                            utility.clear_screen()
+                            print("wrong input")
                 elif choice1=="2":
-                    utility.clear_screen()
-                    Qoute_builder()
+                    while True:
+                        utility.clear_screen()
+                        print("=============QUOTE BUILDER MODE=============")
+                        print("1. START GAME")
+                        print("2. GAME RULES")
+                        print("3. BACK\n")
+                        print("="*40)
+                        choice2 = input("Enter your Choice: ")
+                        if choice2=="1":
+                            utility.clear_screen()
+                            Quote_builder()
+                        elif choice2=="2":
+                            utility.clear_screen()
+                            utility.rules_mode2()
+                            print("\nPress Enter to go back")
+                            input()
+                        elif choice2=="3":
+                            utility.clear_screen()
+                            break
+                        else:
+                            utility.clear_screen()
+                            print("wrong input")
                 elif choice1=="3":
-                    utility.clear_screen()
-                    extreme()
+                    while True:
+                        utility.clear_screen()
+                        print("=============EXTREME MODE=============")
+                        print("1. START GAME")
+                        print("2. GAME RULES")
+                        print("3. BACK\n")
+                        print("="*40)
+                        choice2 = input("Enter your Choice: ")
+                        if choice2=="1":
+                            utility.clear_screen()
+                            extreme()
+                        elif choice2=="2":
+                            utility.clear_screen()
+                            utility.rules_mode3()
+                            print("\nPress Enter to go back")
+                            input()
+                        elif choice2=="3":
+                            utility.clear_screen()
+                            break
+                        else:
+                            utility.clear_screen()
+                            print("wrong input")
                 elif choice1=="4":
                     utility.clear_screen()
                     break

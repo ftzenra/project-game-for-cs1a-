@@ -170,9 +170,7 @@ class ExtremeMode(GameMode):
     
     def load_extreme_words(self):
         """Load the longest words from all levels"""
-        all_words = (Datamodule.mode3 + Datamodule.mode3 + Datamodule.mode3 + 
-                    Datamodule.mode3 + Datamodule.mode3 + Datamodule.mode3 + 
-                    Datamodule.mode3)
+        all_words = (Datamodule.mode3)
         
         # pang filter para dapat 8 letter words lang sa extreme
         self.words = [word for word in all_words if len(word) >= 7]

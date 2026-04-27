@@ -34,36 +34,44 @@ Unscramble the letters to form a word and gain rewards for
 each correct answer!
 
 Rewards can be health, hints, or even level pass!''')
-    print("\n\n======================== GAME MODES =========================\n")
-    print('''        
-MODE 1: Infinity and Beyond! ∞
+    print("\n\n=======================================================\n")
 
-Player has: 3HP, 1 Hint, and 0 Word Pass
+def rules_mode1():
+    print("="*60)
+    print('''        
+    MODE 1: Infinity and Beyond! ∞
+
+    Player has: 3HP, 1 Hint, and 0 Word Pass
                     
-Unscramble words, and for every 5 correct words, your level 
-increases and so does the word length until you reach the 
-10-letter words.\n''')
-    print("-"*60)
+    Unscramble words, and for every 5 correct words, your level 
+    increases and so does the word length until you reach the 
+    10-letter words.\n''') 
+    print("="*60)      
+def rules_mode2():
+    print("="*60)
     print('''        
-MODE 2: Complete the Quote! 
+    MODE 2: Complete the Quote! 
 
-Player has: 3HP, 1 Hint, and 0 Word Passes
+    Player has: 3HP, 1 Hint, and 0 Word Passes
 
-Unscramble 4 words to complete a quote that'll insipre you!\n''')
-    print("-"*60)
+    Unscramble 4 words to complete a quote that'll insipre you!\n''')
+    print("="*60)
+
+def rules_mode3():
+    print("="*60)  
     print('''        
-MODE 3: Extremers Challenge!
+    MODE 3: Extremers Challenge!
 
-Player has: 3HP, 1 Hint, and 1 Word Pass
+    Player has: 3HP, 1 Hint, and 1 Word Pass
           
-Unscramble deep words with at least 10-letters to challenge
-your vocabulary!\n''')
+    Unscramble deep words with at least 10-letters to challenge
+    your vocabulary!\n''')
     print("="*60)
 
 #welcome dialogues
 def welcome():
     print("Welcome to The Word Scramble Game!")
-    print("Unscramble the words to earn points and rewards!")
+    print("created by: BSCS-1A")
 
 #pang show ng quotes
 def show_quotes():

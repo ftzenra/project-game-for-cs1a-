@@ -2,118 +2,365 @@ import random
 import randomizer
 import Datamodule
 import utility
+import OOP
 
-# eto sir para sa qoutes
-def show_quotes():
-    print(f"here quote you created\n{randomizer.quote}")
+#classic play ginagamit neto classic dun OOP
+def classic_play():
+    """Playing Infinite mode with rising difficulty"""
+    game = OOP.InfiniteMode()
+    utility.clear_screen()
 
-# eto process ng hints
-def hint():
-    utility.hints -= 1
-    print(f"{utility.hints} hints left.\n")
-    utility.revealed_count += 1
-    hint_display = list("_" * len(randomizer.words[utility.current_index]))
-    for i in range(utility.revealed_count):
-        if i < len(randomizer.words[utility.current_index]):
-            hint_display[i] = randomizer.words[utility.current_index][i]
-    print("Hint: " + ' '.join(hint_display))
-utility.clear_screen()
-
-# eto main process ng game
-while True:
-    utility.welcome()
-    print("\n1. Start Game\n2. View Rules\n3. Exit")
-    choice = input("Enter your choice: ")
-#eto ung choice 1 para sa start ng game
-    if choice == "1":
+    print("="*40)
+    print("INFINITE MODE")
+    print("="*40)
+    # condition para mag loop
+    while not game.is_game_over() and not game.is_victory():
         utility.clear_screen()
-        # pang reset ng randomizer 
-        utility.reset_game()
-        # main interface pag nasa game na
-        while utility.health > 0 and not utility.cheacker():
-            print(f"Health: {utility.health} | Score: {utility.score} | Hints: {utility.hints}")
-            print(f"Progress: Word {utility.current_index + 1}/4")
-            print("-" * 40)
-            current_scrambled = randomizer.scrambled_words[utility.current_index]
-            print(f"Unscramble this word: {current_scrambled}")
-            
-            game1 = input("Your answer: ").lower().strip()
-            correct_word = randomizer.words[utility.current_index].lower()
-            # eto ung pag tama sagot nya
-            if game1 == correct_word:
-                print("Correct!")
-                utility.correct_words[utility.current_index] = True
-                utility.score += 1
-                randomizer.gifts()
-                print(f"Score: {utility.score}")
-                # random reward every manalo pero may chances dipende gano ka rare reward
-                print(f"You a random gift; {randomizer.reward_type}= +1")
-                print("\npress any key to go back")
-                back_choice = input()
-                utility.current_index += 1
-                # pang return ng correct na word para malaman if na complete mona 4 na word pang buo ng qoutes
-                if utility.cheacker():
-                    utility.clear_screen()
-                    print("You Won!")
-                    print()
-                    show_quotes()
-                    print("\nPress Enter to return to main menu")
-                    input()
-                    utility.clear_screen()
-                    break
-                # eto pag dipa buo ung checker sa taas need mopa ma complte 4 na word
-                else:
-                    print(f"\nNext word coming up...")
-                    input("Press Enter to continue")
-                    utility.clear_screen()               
+        #kuha ng health saoop na galing naman sa utility
+        print("=============INFINITE MODE=============")
+        print(f"\nHealth: {game.health} |  Score: {game.score} |  Hints: {game.hints} |  Passes: {game.word_passes}\n")
+        print(f"{game.get_mode_info()}\n")
+        print("="*40)
 
-                    utility.clear_screen()
-                
-            #pag mali lang to
+        #istore ung scrable
+        currentword=game.get_current_word()
+        scrambled = game.scramble_word(currentword)
+        print(f"UNSCRAMBLE: {scrambled}")
+        
+        answer = input("ANSWER: ").lower().strip()
+
+        if game.check_answer(answer,currentword):
+            print("\nCORRECT!\n")
+            utility.score = game.score
+            game.score +=1
+
+            reward = game.give_reward()
+
+            # incase of level up
+            level_up = game.next_word()
+            if level_up:
+                print({level_up})
+                if "VICTORY" in level_up:
+                    print(f"\nFINAL SCORE: {game.score} ")
+                    input("\nPress Enter to continue...")
+                    return
+                input("Press Enter to continue...")
             else:
-                print("Wrong!")
-                utility.health -= 1
-                print(f"Health remaining: {utility.health}")
+                print("\nPress any key to continue...")
+                input()
+        else:
+            print("wrong answer")
+            game.health -=1
 
-                # eto game over if wala na health
-                if utility.health == 0:
-                    print("Game Over!")
-                    print("answer is ",correct_word)
-                    print(f"final score: {utility.score}")
-                    print("\npress any key to go back")
-                    input()
+            if game.is_game_over():
+                utility.clear_screen()
+                print(f"\nGAME OVER! Final Score: {game.score} ")
+                print(f"The correct word was: {currentword}")
+                print("\nPress any key to go back...")
+                input()
+                return
+            utility.clear_screen()
+            print(f"\nWant to use a hint? (y/n) - {game.hints} hints available")
+            hint_choice = input("> ").lower().strip()
+            if hint_choice == "y" and game.hints> 0:
+                utility.clear_screen()
+                hint = game.show_hint(currentword)
+                if hint:
+                    print(f"UNSCRAMBLE: {scrambled}")
+                    print(f"🔍 Hint: {hint}")
+            elif game.hints <= 0:
+                utility.clear_screen()
+                print("===0 hints===")
+            elif hint_choice == "n":
+                utility.clear_screen()
+                print("DID NOT USE HINT")
+            else:
+                utility.clear_screen()
+                print("wrong input")
+            print(f"Want to use word pass? (y/n) - {game.word_passes} available")
+            pass_choice = input("> ").lower().strip()
+            if pass_choice == "y" and game.word_passes > 0:
+                game.word_passes -= 1
+                utility.word_pass = game.word_passes
+                print(f"The word is: {currentword} ")
+            
+            input("\nPress Enter to continue...")
+
+
+# same lang code basically ung oop lang iba
+def Quote_builder():
+    """Play quote builder mode"""
+    game = OOP.QuoteBuilderMode()
+    utility.clear_screen()
+
+    print("="*40)
+    print("QOUTE BUILDER MODE")
+    print("="*40)
+
+
+    # condition para mag loop
+    while not game.is_game_over() and not game.is_victory():
+        utility.clear_screen()
+        #kuha ng health saoop na galing naman sa utility
+        print("=============QUOTE BUILDER MODE=============")
+        print(f"\nHealth: {game.health} |  Score: {game.score} |  Hints: {game.hints} |  Passes: {game.word_passes}\n")
+        print(f"{game.get_mode_info()}\n")
+        print("="*40)
+
+        #istore ung scrable
+        currentword=game.get_current_word()
+        scrambled = game.scramble_word(currentword)
+        print(f"UNSCRAMBLE: {scrambled}")
+        
+        answer = input("ANSWER: ").lower().strip()
+
+        if game.check_answer(answer,currentword):
+            print("\nCORRECT\n")
+            utility.score = game.score
+            game.score +=1
+
+            reward = game.give_reward()
+
+            # incase of level up
+            complete_msg = game.next_word()
+            if complete_msg:
+                print(f"\n{complete_msg}")
+                print(f"\nFULL QUOTE: {game.get_complete_quote()} ")
+                print(f"\nFINAL SCORE: {game.score} ")
+                input("\nPress Enter to continue...")
+                return
+            else:
+                print("\nPress any key to continue...")
+                input()
+        else:
+            print("wrong answer")
+            game.health -=1
+
+            if game.is_game_over():
+                utility.clear_screen()
+                print(f"\nGAME OVER! Final Score: {game.score} ")
+                print(f"The correct word was: {currentword}")
+                print("\nPress any key to go back...")
+                input()
+                return
+            utility.clear_screen()
+            print(f"\nWant to use a hint? (y/n) - {game.hints} hints available")
+            hint_choice = input("> ").lower().strip()
+            if hint_choice == "y" and game.hints> 0:
+                utility.clear_screen()
+                hint = game.show_hint(currentword)
+                if hint:
+                    print(f"UNSCRAMBLE: {scrambled}")
+                    print(f"🔍 Hint: {hint}")
+            elif game.hints <= 0:
+                print("===0 hints===")
+            elif hint_choice == "n":
+                utility.clear_screen()
+                print("DID NOT USE HINT")
+            else:
+                print("wrong input")
+
+            print(f"\nWant to use word pass? (y/n) - {game.word_passes} available")
+            pass_choice = input("> ").lower()
+            if pass_choice == 'y' and game.word_passes > 0:
+                game.word_passes -= 1
+                utility.word_pass = game.word_passes
+                print(f"\nThe word is: {currentword} ")
+            
+            input("\nPress Enter to continue...")
+
+#same lang basically ibang oop lang gamit nya
+def extreme():
+    """EXTREME difficulty"""
+    game = OOP.ExtremeMode()
+    utility.clear_screen()
+
+    print("="*40)
+    print("EXTREME MODE")
+    print("="*40)
+    # condition para mag loop
+    while not game.is_game_over() and not game.is_victory():
+        utility.clear_screen()
+        #kuha ng health saoop na galing naman sa utility
+        print(f"\nHealth: {game.health} |  Score: {game.score} |  Hints: {game.hints} |  Passes: {game.word_passes}\n")
+        print(f"{game.get_mode_info()}\n")
+        print("="*40)
+
+        #istore ung scrable
+        currentword=game.get_current_word()
+        scrambled = game.scramble_word(currentword)
+        print(f"UNSCRAMBLE: {scrambled}")
+        
+        answer = input("ANSWER: ").lower().strip()
+
+        if game.check_answer(answer,currentword):
+            print("\nCORRECT\n")
+            utility.score = game.score
+            game.score +=1
+
+            reward = game.give_reward()
+
+            # incase of level up
+            level_up = game.next_word()
+            if level_up:
+                print(f"{level_up}")
+                if "VICTORY" in level_up:
+                    print(f"FINAL SCORE: {game.score} ")
+                    input("\nPress Enter to continue...")
+                    return
+                input("Press Enter to continue...")
+            else:
+                print("\nPress any key to continue...")
+                input()
+        else:
+            print("wrong answer")
+            game.health -=1
+
+            if game.is_game_over():
+                utility.clear_screen()
+                print(f"\n GAME OVER! Final Score: {game.score} ")
+                print(f"The correct word was: {currentword}")
+                print("\nPress any key to go back...")
+                input()
+                return
+            utility.clear_screen()
+            print(f"\nWant to use a hint? (y/n) - {game.hints} hints available")
+            hint_choice = input("choice:").lower().strip()
+            if hint_choice == "y" and game.hints> 0:
+                utility.clear_screen()
+                hint = game.show_hint(currentword)
+                if hint:
+                    print(f"UNSCRAMBLE: {scrambled}")
+                    print(f"🔍 Hint: {hint}")
+            elif game.hints <= 0:
+                print("=== no more hints left ===")
+            elif hint_choice == "n":
+                utility.clear_screen()
+                print("DID NOT USE HINT")
+            else:
+                print("wrong input")
+
+            print(f"\n Want to use word pass? (y/n) - {game.word_passes} available")
+            pass_choice = input().lower()
+            if pass_choice == 'y' and game.word_passes > 0:
+                game.word_passes -= 1
+                utility.word_pass = game.word_passes
+                print(f" The word is: {currentword} ")
+            
+            input("\nPress Enter to continue...")
+
+
+def main():
+    while True:
+        utility.clear_screen()
+        utility.welcome()
+        print("\n======== THE WORD SCRAMBLE GAME ========\n")
+        print("1. GAME MODES")
+        print("2. RULES")
+        print("3. EXIT\n")
+        print("="*40)
+        
+        choice =input("Enter your Choice: ")
+
+        if choice=="1":
+            utility.clear_screen()
+            while True:
+                utility.clear_screen()
+                print("=============== GAME MODE ==============\n")
+                print("1. INFINITE")
+                print("2. QOUTE BUILDER")
+                print("3. EXTREME")
+                print("4. BACK\n")
+                print("="*40)
+
+                choice1 = input("Enter your Choice: ")
+                if choice1=="1":
+                    while True:
+                        utility.clear_screen()
+                        print("=============INFINITE MODE=============")
+                        print("1. START GAME")
+                        print("2. GAME RULES")
+                        print("3. BACK\n")
+                        print("="*40)
+                        choice2 = input("Enter your Choice: ")
+                        if choice2=="1":
+                            utility.clear_screen()
+                            classic_play()
+                        elif choice2=="2":
+                            utility.clear_screen()
+                            utility.rules_mode1()
+                            print("\nPress Enter to go back")
+                            input()
+                        elif choice2=="3":
+                            utility.clear_screen()
+                            break
+                        else:
+                            utility.clear_screen()
+                            print("wrong input")
+                elif choice1=="2":
+                    while True:
+                        utility.clear_screen()
+                        print("=============QUOTE BUILDER MODE=============")
+                        print("1. START GAME")
+                        print("2. GAME RULES")
+                        print("3. BACK\n")
+                        print("="*40)
+                        choice2 = input("Enter your Choice: ")
+                        if choice2=="1":
+                            utility.clear_screen()
+                            Quote_builder()
+                        elif choice2=="2":
+                            utility.clear_screen()
+                            utility.rules_mode2()
+                            print("\nPress Enter to go back")
+                            input()
+                        elif choice2=="3":
+                            utility.clear_screen()
+                            break
+                        else:
+                            utility.clear_screen()
+                            print("wrong input")
+                elif choice1=="3":
+                    while True:
+                        utility.clear_screen()
+                        print("=============EXTREME MODE=============")
+                        print("1. START GAME")
+                        print("2. GAME RULES")
+                        print("3. BACK\n")
+                        print("="*40)
+                        choice2 = input("Enter your Choice: ")
+                        if choice2=="1":
+                            utility.clear_screen()
+                            extreme()
+                        elif choice2=="2":
+                            utility.clear_screen()
+                            utility.rules_mode3()
+                            print("\nPress Enter to go back")
+                            input()
+                        elif choice2=="3":
+                            utility.clear_screen()
+                            break
+                        else:
+                            utility.clear_screen()
+                            print("wrong input")
+                elif choice1=="4":
                     utility.clear_screen()
                     break
-                # ask player if want hint
-                print(f"Want to use a hint? (y/n) -{utility.hints}hint available"  )
-                hint_choice = input().lower()
-                if hint_choice=="y" and utility.hints > 0:
-                    utility.clear_screen()
-                    hint()
-                elif hint_choice == "n":
-                    utility.clear_screen()
-                    print("====did not use hint===")
-                elif utility.hints <= 0:
-                    utility.clear_screen()
-                    print("===0 hints===")
                 else:
-                    print("===wrong input===")
-                print(f"want to use word pass?")
-                pass_choice= input().lower()
-                # ask sa player if want ng word pass
-                if pass_choice == "y" and utility.word_pass > 0:
                     utility.clear_screen()
-                    print(f"the word is { randomizer.words[utility.current_index].lower()}")
-                else:
-                    pass
-    # wala to parang sa rules
-    elif choice == "2":
-        utility.clear_screen()
-        utility.rules()
-        print("\n\nPress Enter to go back")
-        input()
-        utility.clear_screen()
-    # pang exit para masaya
-    elif choice == "3":
-        print("Thanks for playing!")
-        break
+                    print("wrong input")
+        elif choice == "2":
+            utility.clear_screen()
+            utility.rules()
+            print("\nPress Enter to go back")
+            input()
+            utility.clear_screen()
+        elif choice=="3":
+            utility.clear_screen()
+            print ("Thank you for playing our game!")
+            break
+        else:
+            print("wrong input")
+
+if __name__ == "__main__":
+    main()
