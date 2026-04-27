@@ -87,9 +87,9 @@ class InfiniteMode(GameMode):
             self.current_level += 1
             if self.current_level in self.level_words:
                 self.load_level()
-                return f"LEVEL UP! Now at Level {self.current_level}"
+                return f"\033[35mLEVEL UP! Now at Level {self.current_level}\033[0m"
             else:
-                return "VICTORY! You completed all levels!"
+                return "\033[32mVICTORY! You completed all levels!\033[0m"
         return None
     
     def is_game_over(self):
@@ -132,7 +132,7 @@ class QuoteBuilderMode(GameMode):
         self.current_word_index += 1
         
         if self.current_word_index >= len(self.words):
-            return "QUOTE COMPLETE!"
+            return "\033[32mQUOTE COMPLETE!\033[0m"
         return None
     
     def is_game_over(self):
@@ -196,7 +196,7 @@ class ExtremeMode(GameMode):
         self.current_word_index += 1
         
         if self.current_word_index >= len(self.words):
-            return "EXTREME CHALLENGE COMPLETE!"
+            return "\033[32mEXTREME CHALLENGE COMPLETE!\033[0m"
         return None
     
     def is_game_over(self):

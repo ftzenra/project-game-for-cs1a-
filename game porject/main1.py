@@ -18,19 +18,19 @@ def classic_play():
         utility.clear_screen()
         #kuha ng health saoop na galing naman sa utility
         print("=============INFINITE MODE=============")
-        print(f"\nHealth: {game.health} |  Score: {game.score} |  Hints: {game.hints} |  Passes: {game.word_passes}\n")
+        print(f"\n\033[31mHealth: {game.health}\033[0m |  \033[32mScore: {game.score}\033[0m |  \033[33mHints: {game.hints}\033[0m |  \033[35mPasses: {game.word_passes}\033[0m\n")
         print(f"{game.get_mode_info()}\n")
         print("="*40)
 
         #istore ung scrable
         currentword=game.get_current_word()
         scrambled = game.scramble_word(currentword)
-        print(f"UNSCRAMBLE: {scrambled}")
+        print(f"UNSCRAMBLE: \033[34m{scrambled}\033[0m")
         
         answer = input("ANSWER: ").lower().strip()
 
         if game.check_answer(answer,currentword):
-            print("\nCORRECT!\n")
+            print("\n\033[32mCORRECT!\033[0m\n")
             utility.score = game.score
             game.score +=1
             utility.mode1_score = max(utility.mode1_score, game.score)  # score tracking for high score
@@ -39,7 +39,7 @@ def classic_play():
             # incase of level up
             level_up = game.next_word()
             if level_up:
-                print({level_up})
+                print(level_up)
                 if "VICTORY" in level_up:
                     print(f"\nFINAL SCORE: {game.score} ")
                     input("\nPress Enter to continue...")
@@ -49,18 +49,17 @@ def classic_play():
                 print("\nPress any key to continue...")
                 input()
         else:
-            print("wrong answer")
+            print("\n\033[31mWRONG ANSWER\033[0m")
             game.health -=1
 
             if game.is_game_over():
                 utility.clear_screen()
-                print(f"\nGAME OVER! Final Score: {game.score} ")
+                print(f"\033[31mGAME OVER!\033[0m \033[35mFinal Score: {game.score} \033[0m")
                 print(f"The correct word was: {currentword}")
                 print("\nPress any key to go back...")
                 input()
                 return
-            utility.clear_screen()
-            print(f"\nWant to use a hint? (y/n) - {game.hints} hints available")
+            print(f"\nWant to use a \033[33mhint\033[0m? (y/n) - \033[33m{game.hints} hints\033[0m available")
             hint_choice = input("> ").lower().strip()
             if hint_choice == "y" and game.hints> 0:
                 utility.clear_screen()
@@ -70,14 +69,14 @@ def classic_play():
                     print(f"🔍 Hint: {hint}")
             elif game.hints <= 0:
                 utility.clear_screen()
-                print("===0 hints===")
+                print("\n\033[31m===0 hints===\033[0m")
             elif hint_choice == "n":
                 utility.clear_screen()
                 print("DID NOT USE HINT")
             else:
                 utility.clear_screen()
-                print("wrong input")
-            print(f"Want to use word pass? (y/n) - {game.word_passes} available")
+                print("\n\033[31mWRONG INPUT\033[0m")
+            print(f"\nWant to use \033[35mword pass\033[0m? (y/n) - \033[35m{game.word_passes} available\033[0m")
             pass_choice = input("> ").lower().strip()
             if pass_choice == "y" and game.word_passes > 0:
                 game.word_passes -= 1
@@ -103,19 +102,19 @@ def Quote_builder():
         utility.clear_screen()
         #kuha ng health saoop na galing naman sa utility
         print("=============QUOTE BUILDER MODE=============")
-        print(f"\nHealth: {game.health} |  Score: {game.score} |  Hints: {game.hints} |  Passes: {game.word_passes}\n")
+        print(f"\n\033[31mHealth: {game.health}\033[0m |  \033[32mScore: {game.score}\033[0m |  \033[33mHints: {game.hints}\033[0m |  \033[35mPasses: {game.word_passes}\033[0m\n")
         print(f"{game.get_mode_info()}\n")
         print("="*40)
 
         #istore ung scrable
         currentword=game.get_current_word()
         scrambled = game.scramble_word(currentword)
-        print(f"UNSCRAMBLE: {scrambled}")
+        print(f"UNSCRAMBLE: \033[34m{scrambled}\033[0m")
         
         answer = input("ANSWER: ").lower().strip()
 
         if game.check_answer(answer,currentword):
-            print("\nCORRECT\n")
+            print("\n\033[32mCORRECT!\033[0m\n")
             utility.score = game.score
             game.score +=1
             utility.mode2_score = max(utility.mode2_score, game.score)
@@ -133,18 +132,17 @@ def Quote_builder():
                 print("\nPress any key to continue...")
                 input()
         else:
-            print("wrong answer")
+            print("\n\033[31mWRONG ANSWER\033[0m")
             game.health -=1
 
             if game.is_game_over():
                 utility.clear_screen()
-                print(f"\nGAME OVER! Final Score: {game.score} ")
+                print(f"\n\033[31mGAME OVER!\033[0m \033[35mFinal Score: {game.score} \033[0m")
                 print(f"The correct word was: {currentword}")
                 print("\nPress any key to go back...")
                 input()
                 return
-            utility.clear_screen()
-            print(f"\nWant to use a hint? (y/n) - {game.hints} hints available")
+            print(f"\nWant to use a \033[33mhint\033[0m? (y/n) - \033[33m{game.hints} hints\033[0m available")
             hint_choice = input("> ").lower().strip()
             if hint_choice == "y" and game.hints> 0:
                 utility.clear_screen()
@@ -153,14 +151,14 @@ def Quote_builder():
                     print(f"UNSCRAMBLE: {scrambled}")
                     print(f"🔍 Hint: {hint}")
             elif game.hints <= 0:
-                print("===0 hints===")
+                print("\n\033[31m===0 hints===\033[0m")
             elif hint_choice == "n":
                 utility.clear_screen()
                 print("DID NOT USE HINT")
             else:
-                print("wrong input")
+                print("\n\033[31mWRONG INPUT\033[0m")
 
-            print(f"\nWant to use word pass? (y/n) - {game.word_passes} available")
+            print(f"\nWant to use \033[35mword pass\033[0m? (y/n) - \033[35m{game.word_passes} available\033[0m")
             pass_choice = input("> ").lower()
             if pass_choice == 'y' and game.word_passes > 0:
                 game.word_passes -= 1
@@ -182,19 +180,19 @@ def extreme():
     while not game.is_game_over() and not game.is_victory():
         utility.clear_screen()
         #kuha ng health saoop na galing naman sa utility
-        print(f"\nHealth: {game.health} |  Score: {game.score} |  Hints: {game.hints} |  Passes: {game.word_passes}\n")
+        print(f"\n\033[31mHealth: {game.health}\033[0m |  \033[32mScore: {game.score}\033[0m |  \033[33mHints: {game.hints}\033[0m |  \033[35mPasses: {game.word_passes}\033[0m\n")
         print(f"{game.get_mode_info()}\n")
         print("="*40)
 
         #istore ung scrable
         currentword=game.get_current_word()
         scrambled = game.scramble_word(currentword)
-        print(f"UNSCRAMBLE: {scrambled}")
+        print(f"UNSCRAMBLE: \033[34m{scrambled}\033[0m")
         
         answer = input("ANSWER: ").lower().strip()
 
         if game.check_answer(answer,currentword):
-            print("\nCORRECT\n")
+            print("\n\033[32mCORRECT!\033[0m\n")
             utility.score = game.score
             game.score +=1
             utility.mode3_score = max(utility.mode3_score, game.score)
@@ -213,18 +211,17 @@ def extreme():
                 print("\nPress any key to continue...")
                 input()
         else:
-            print("wrong answer")
+            print("\n\033[31mWRONG ANSWER\033[0m")
             game.health -=1
 
             if game.is_game_over():
                 utility.clear_screen()
-                print(f"\n GAME OVER! Final Score: {game.score} ")
+                print(f"\n\033[31mGAME OVER!\033[0m \033[35mFinal Score: {game.score} \033[0m")
                 print(f"The correct word was: {currentword}")
                 print("\nPress any key to go back...")
                 input()
                 return
-            utility.clear_screen()
-            print(f"\nWant to use a hint? (y/n) - {game.hints} hints available")
+            print(f"\nWant to use a \033[33mhint\033[0m? (y/n) - \033[33m{game.hints} hints\033[0m available")
             hint_choice = input("choice:").lower().strip()
             if hint_choice == "y" and game.hints> 0:
                 utility.clear_screen()
@@ -233,14 +230,14 @@ def extreme():
                     print(f"UNSCRAMBLE: {scrambled}")
                     print(f"🔍 Hint: {hint}")
             elif game.hints <= 0:
-                print("=== no more hints left ===")
+                print("\n\033[31m=== no more hints left ===\033[0m")
             elif hint_choice == "n":
                 utility.clear_screen()
                 print("DID NOT USE HINT")
             else:
-                print("wrong input")
+                print("\n\033[31mWRONG INPUT\033[0m")
 
-            print(f"\n Want to use word pass? (y/n) - {game.word_passes} available")
+            print(f"\nWant to use \033[35mword pass\033[0m? (y/n) - \033[35m{game.word_passes} available\033[0m")
             pass_choice = input().lower()
             if pass_choice == 'y' and game.word_passes > 0:
                 game.word_passes -= 1
@@ -255,22 +252,22 @@ def main():
         utility.clear_screen()
         utility.welcome()
         print("\n======== THE WORD SCRAMBLE GAME ========\n")
-        print("1. GAME MODES")
-        print("2. RULES")
-        print("3. EXIT\n")
+        print("1. \033[32mGAME MODES\033[0m")
+        print("2. \033[33mRULES\033[0m")
+        print("3. \033[31mEXIT\033[0m\n")
         print("="*40)
-        
-        choice =input("Enter your Choice: ")
+
+        choice = input("Enter your Choice: ")
 
         if choice=="1":
             utility.clear_screen()
             while True:
                 utility.clear_screen()
                 print("=============== GAME MODE ==============\n")
-                print("1. INFINITE")
-                print("2. QOUTE BUILDER")
-                print("3. EXTREME")
-                print("4. BACK\n")
+                print("1. \033[32mINFINITE\033[0m")
+                print("2. \033[32mQUOTE BUILDER\033[0m")
+                print("3. \033[32mEXTREME\033[0m")
+                print("4. \033[31mBACK\033[0m\n")
                 print("="*40)
 
                 choice1 = input("Enter your Choice: ")
@@ -278,10 +275,10 @@ def main():
                     while True:
                         utility.clear_screen()
                         print("=============INFINITE MODE=============\n")
-                        print("1. START GAME")
-                        print("2. GAME RULES")
-                        print("3. HIGH SCORES")
-                        print("4. BACK\n")
+                        print("1. \033[32mSTART GAME\033[0m")
+                        print("2. \033[33mGAME RULES\033[0m")
+                        print("3. \033[35mHIGH SCORES\033[0m")
+                        print("4. \033[31mBACK\033[0m\n")
                         print("="*40)
                         choice2 = input("Enter your Choice: ")
                         if choice2=="1":
@@ -295,7 +292,7 @@ def main():
                         elif choice2=="3":
                             utility.clear_screen()
                             print("=============HIGH SCORES=============\n")
-                            print(f"INFINITE MODE HIGH SCORE: {utility.mode1_score}")
+                            print(f"INFINITE MODE \033[35mHIGH SCORE\033[0m: {utility.mode1_score}")
                             print("="*40)
                             print("\nPress Enter to go back")
                             input()
@@ -304,15 +301,15 @@ def main():
                             break
                         else:
                             utility.clear_screen()
-                            print("wrong input")
+                            print("\n\033[31mWRONG INPUT\033[0m")
                 elif choice1=="2":
                     while True:
                         utility.clear_screen()
                         print("=============QUOTE BUILDER MODE=============\n")
-                        print("1. START GAME")
-                        print("2. GAME RULES")
-                        print("3. HIGH SCORES")
-                        print("4. BACK\n")
+                        print("1. \033[32mSTART GAME\033[0m")
+                        print("2. \033[33mGAME RULES\033[0m")
+                        print("3. \033[35mHIGH SCORES\033[0m")
+                        print("4. \033[31mBACK\033[0m\n")
                         print("="*40)
                         choice2 = input("Enter your Choice: ")
                         if choice2=="1":
@@ -326,7 +323,7 @@ def main():
                         elif choice2=="3":
                             utility.clear_screen()
                             print("=============HIGH SCORES=============\n")
-                            print(f"QUOTE BUILDER MODE HIGH SCORE: {utility.mode2_score}")
+                            print(f"QUOTE BUILDER MODE \033[35mHIGH SCORE\033[0m: {utility.mode2_score}")
                             print("="*40)
                             print("\nPress Enter to go back")
                             input()
@@ -335,15 +332,15 @@ def main():
                             break
                         else:
                             utility.clear_screen()
-                            print("wrong input")
+                            print("\n\033[31mWRONG INPUT\033[0m")
                 elif choice1=="3":
                     while True:
                         utility.clear_screen()
                         print("=============EXTREME MODE=============\n")
-                        print("1. START GAME")
-                        print("2. GAME RULES")
-                        print("3. HIGH SCORES")
-                        print("4. BACK\n")
+                        print("1. \033[32mSTART GAME\033[0m")
+                        print("2. \033[33mGAME RULES\033[0m")
+                        print("3. \033[35mHIGH SCORES\033[0m")
+                        print("4. \033[31mBACK\033[0m\n")
                         print("="*40)
                         choice2 = input("Enter your Choice: ")
                         if choice2=="1":
@@ -357,7 +354,7 @@ def main():
                         elif choice2=="3":
                             utility.clear_screen()
                             print("=============HIGH SCORES=============\n")
-                            print(f"EXTREME MODE HIGH SCORE: {utility.mode3_score}")
+                            print(f"EXTREME MODE \033[35mHIGH SCORE\033[0m: {utility.mode3_score}")
                             print("="*40)
                             print("\nPress Enter to go back")
                             input()
@@ -366,13 +363,13 @@ def main():
                             break
                         else:
                             utility.clear_screen()
-                            print("wrong input")
+                            print("\n\033[31mWRONG INPUT\033[0m")
                 elif choice1=="4":
                     utility.clear_screen()
                     break
                 else:
                     utility.clear_screen()
-                    print("wrong input")
+                    print("\n\033[31mWRONG INPUT\033[0m")
         elif choice == "2":
             utility.clear_screen()
             utility.rules()
@@ -384,7 +381,7 @@ def main():
             print ("Thank you for playing our game!")
             break
         else:
-            print("wrong input")
+            print("\n\033[31mWRONG INPUT\033[0m")
 
 if __name__ == "__main__":
     main()

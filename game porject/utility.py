@@ -36,26 +36,26 @@ def rules():
 Unscramble the letters to form a word and gain rewards for 
 each correct answer!
 
-Rewards can be health, hints, or even level pass!''')
+Rewards can be \033[32mhealth\033[0m, \033[33mhints\033[0m, or even \033[35mlevel pass\033[0m!''')
     print("\n\n=======================================================\n")
 
 def rules_mode1():
     print("="*60)
     print('''        
-    MODE 1: Infinity and Beyond! ∞
+    MODE 1: \033[36mInfinity and Beyond! ∞\033[0m
 
-    Player has: 3HP, 1 Hint, and 0 Word Pass
+    Player has: \033[31m3HP\033[0m, \033[33m1 Hint\033[0m, and \033[35m0 Word Pass\033[0m
                     
-    Unscramble words, and for every 5 correct words, your level 
+    \033[34mUnscramble words, and for every 5 correct words, your level 
     increases and so does the word length until you reach the 
-    10-letter words.\n''') 
+    10-letter words.\033[0m\n''') 
     print("="*60)      
 def rules_mode2():
     print("="*60)
     print('''        
-    MODE 2: Complete the Quote! 
+    MODE 2: \033[36mComplete the Quote!\033[0m
 
-    Player has: 3HP, 1 Hint, and 0 Word Passes
+    Player has: \033[31m3HP\033[0m, \033[33m1 Hint\033[0m, and \033[35m0 Word Passes\033[0m
 
     Unscramble 4 words to complete a quote that'll insipre you!\n''')
     print("="*60)
@@ -63,9 +63,9 @@ def rules_mode2():
 def rules_mode3():
     print("="*60)  
     print('''        
-    MODE 3: Extremers Challenge!
+    MODE 3: \033[36mExtremers Challenge!\033[0m
 
-    Player has: 3HP, 1 Hint, and 1 Word Pass
+    Player has: \033[31m3HP\033[0m, \033[33m1 Hint\033[0m, and \033[35m1 Word Pass\033[0m
           
     Unscramble deep words with at least 10-letters to challenge
     your vocabulary!\n''')
@@ -73,8 +73,23 @@ def rules_mode3():
 
 #welcome dialogues
 def welcome():
-    print("Welcome to The Word Scramble Game!")
-    print("created by: BSCS-1A")
+    print("""\033[36m _    _      _                             _          _   _                   
+| |  | |    | |                           | |        | | | |                  
+| |  | | ___| | ___ ___  _ __ ___   ___   | |_ ___   | |_| |__   ___          
+| |/\| |/ _ \ |/ __/ _ \| '_ ` _ \ / _ \  | __/ _ \  | __| '_ \ / _ \         
+\  /\  /  __/ | (_| (_) | | | | | |  __/  | || (_) | | |_| | | |  __/         
+ \/  \/ \___|_|\___\___/|_| |_| |_|\___|   \__\___/   \__|_| |_|\___|         
+                                                                              
+                                                                              
+ _____                          _     _        _____                         \033[31m_\033[0m  
+\033[36m/  ___|                        | |   | |      |  __ \                     \033[0m  \033[31m| |\033[0m 
+\033[36m\ `--.  ___ _ __ __ _ _ __ ___ | |__ | | ___  | |  \/ __ _ _ __ ___   ___ \033[0m  \033[31m| |\033[0m 
+\033[36m `--. \/ __| '__/ _` | '_ ` _ \| '_ \| |/ _ \ | | __ / _` | '_ ` _ \ / _ \ \033[0m \033[31m| |\033[0m 
+\033[36m/\__/ / (__| | | (_| | | | | | | |_) | |  __/ | |_\ \ (_| | | | | | |  __/\033[0m  \033[31m|_|\033[0m 
+\033[36m\____/ \___|_|  \__,_|_| |_| |_|_.__/|_|\___|  \____/\__,_|_| |_| |_|\___|\033[0m  \033[31m(_)\033[0m 
+                                                                              
+                                                                              """)
+    print("created by: \033[34mBSCS-1A\033[0m")
 
 #pang show ng quotes
 def show_quotes():

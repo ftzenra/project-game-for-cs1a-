@@ -38,19 +38,19 @@ def gifts():
         utility.health += 1
         reward_value = 1
         # Common reward message
-        print(f"REWARD: COMMON +1 Health!")
+        print(f"REWARD: \033[31mCOMMON +1 Health!\033[0m")
 
     elif reward_type == "hints":
         utility.hints += 1
         reward_value = 1
         # Rare reward message
-        print(f"REWARD: RARE! +1 Hint!")
+        print(f"REWARD: \033[33mRARE! +1 Hint!\033[0m")
         
     elif reward_type == "word_pass":
         utility.word_pass += 1
         reward_value = 1
         
-        print(f"REWARD: 🌟🌟🌟 EPIC 🌟🌟🌟 +1 Word Pass!")
+        print(f"REWARD: \033[35m🌟🌟🌟 EPIC 🌟🌟🌟 +1 Word Pass!\033[0m")
     
     return reward_type, reward_value
 
