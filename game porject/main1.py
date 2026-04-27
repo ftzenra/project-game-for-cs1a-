@@ -33,7 +33,7 @@ def classic_play():
             print("\nCORRECT!\n")
             utility.score = game.score
             game.score +=1
-
+            utility.mode1_score = max(utility.mode1_score, game.score)  # score tracking for high score
             reward = game.give_reward()
 
             # incase of level up
@@ -118,7 +118,7 @@ def Quote_builder():
             print("\nCORRECT\n")
             utility.score = game.score
             game.score +=1
-
+            utility.mode2_score = max(utility.mode2_score, game.score)
             reward = game.give_reward()
 
             # incase of level up
@@ -197,7 +197,7 @@ def extreme():
             print("\nCORRECT\n")
             utility.score = game.score
             game.score +=1
-
+            utility.mode3_score = max(utility.mode3_score, game.score)
             reward = game.give_reward()
 
             # incase of level up
@@ -280,7 +280,8 @@ def main():
                         print("=============INFINITE MODE=============\n")
                         print("1. START GAME")
                         print("2. GAME RULES")
-                        print("3. BACK\n")
+                        print("3. HIGH SCORES")
+                        print("4. BACK\n")
                         print("="*40)
                         choice2 = input("Enter your Choice: ")
                         if choice2=="1":
@@ -293,6 +294,13 @@ def main():
                             input()
                         elif choice2=="3":
                             utility.clear_screen()
+                            print("=============HIGH SCORES=============\n")
+                            print(f"INFINITE MODE HIGH SCORE: {utility.mode1_score}")
+                            print("="*40)
+                            print("\nPress Enter to go back")
+                            input()
+                        elif choice2=="4":
+                            utility.clear_screen()
                             break
                         else:
                             utility.clear_screen()
@@ -303,7 +311,8 @@ def main():
                         print("=============QUOTE BUILDER MODE=============\n")
                         print("1. START GAME")
                         print("2. GAME RULES")
-                        print("3. BACK\n")
+                        print("3. HIGH SCORES")
+                        print("4. BACK\n")
                         print("="*40)
                         choice2 = input("Enter your Choice: ")
                         if choice2=="1":
@@ -316,6 +325,13 @@ def main():
                             input()
                         elif choice2=="3":
                             utility.clear_screen()
+                            print("=============HIGH SCORES=============\n")
+                            print(f"QUOTE BUILDER MODE HIGH SCORE: {utility.mode2_score}")
+                            print("="*40)
+                            print("\nPress Enter to go back")
+                            input()
+                        elif choice2=="4":
+                            utility.clear_screen()
                             break
                         else:
                             utility.clear_screen()
@@ -326,7 +342,8 @@ def main():
                         print("=============EXTREME MODE=============\n")
                         print("1. START GAME")
                         print("2. GAME RULES")
-                        print("3. BACK\n")
+                        print("3. HIGH SCORES")
+                        print("4. BACK\n")
                         print("="*40)
                         choice2 = input("Enter your Choice: ")
                         if choice2=="1":
@@ -338,6 +355,13 @@ def main():
                             print("\nPress Enter to go back")
                             input()
                         elif choice2=="3":
+                            utility.clear_screen()
+                            print("=============HIGH SCORES=============\n")
+                            print(f"EXTREME MODE HIGH SCORE: {utility.mode3_score}")
+                            print("="*40)
+                            print("\nPress Enter to go back")
+                            input()
+                        elif choice2=="4":
                             utility.clear_screen()
                             break
                         else:

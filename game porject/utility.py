@@ -10,6 +10,9 @@ score = 0
 revealed_count = 0
 current_index = 0
 correct_words = [False, False, False, False]
+mode1_score = 0
+mode2_score = 0
+mode3_score = 0
 
 # pang reset so everytime mag laro di same value
 def reset_game():
