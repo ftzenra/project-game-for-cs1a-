@@ -47,7 +47,7 @@ increases and so does the word length until you reach the
     print('''        
 MODE 2: Complete the Quote! 
 
-Player has: 3HP, 3 Hints, and 2 Word Passes
+Player has: 3HP, 1 Hint, and 0 Word Passes
 
 Unscramble 4 words to complete a quote that'll insipre you!\n''')
     print("-"*60)

@@ -106,8 +106,8 @@ class InfiniteMode(GameMode):
 class QuoteBuilderMode(GameMode):
     def __init__(self):
         super().__init__(health=3)
-        self.hints = 3
-        self.word_passes = 2
+        self.hints = utility.hints
+        self.word_passes = utility.word_pass
         utility.hints = self.hints
         utility.word_pass = self.word_passes
         self.load_quote()
