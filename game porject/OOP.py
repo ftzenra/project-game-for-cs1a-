@@ -81,6 +81,7 @@ class InfiniteMode(GameMode):
     def next_word(self):
         self.current_word_index += 1
         self.words_completed += 1
+        self.revealed_count = 0  # Reset hints for new word
         
         # tignan if complete mona ba ung 5 word para sa isang level
         if self.current_word_index >= len(self.words):
@@ -132,6 +133,7 @@ class QuoteBuilderMode(GameMode):
     def next_word(self):
         self.correct_words[self.current_word_index] = True
         self.current_word_index += 1
+        self.revealed_count = 0  # Reset hints for new word
         
         if self.current_word_index >= len(self.words):
             return "\033[32mQUOTE COMPLETE!\033[0m"
