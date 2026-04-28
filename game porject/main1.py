@@ -62,15 +62,38 @@ def classic_play():
                 return
             print(f"\nWant to use a \033[33mhint\033[0m? (y/n) - \033[33m{game.hints} hints\033[0m available")
             hint_choice = input("> ").lower().strip()
-            if hint_choice == "y" and game.hints> 0:
-                utility.clear_screen()
-                hint = game.show_hint(currentword)
-                if hint:
+            if hint_choice == "y":
+                while game.hints > 0:
+                    utility.clear_screen()
                     print(f"UNSCRAMBLE: {scrambled}")
-                    print(f"🔍 Hint: {hint}")
-            elif game.hints <= 0:
+                    if game.revealed_count > 0:
+                        hint_display = list("_" * len(currentword))
+                        for i in range(min(game.revealed_count, len(currentword))):
+                            hint_display[i] = currentword[i]
+                        print(f"🔍 Current Hint: {' '.join(hint_display)}")
+                    
+                    print(f"\n\033[33m{game.hints} hints\033[0m remaining")
+                    print("Use a hint? (y/n)")
+                    use_hint = input("> ").lower().strip()
+                    if use_hint == "y":
+                        hint = game.show_hint(currentword)
+                        if hint:
+                            utility.clear_screen()
+                            print(f"UNSCRAMBLE: {scrambled}")
+                            print(f"🔍 Hint: {hint}")
+                        else:
+                            print("\n\033[31mNo hints available\033[0m")
+                            break
+                    else:
+                        break
+                
                 utility.clear_screen()
-                print("\n\033[31m===0 hints===\033[0m")
+                print(f"UNSCRAMBLE: {scrambled}")
+                if game.revealed_count > 0:
+                    hint_display = list("_" * len(currentword))
+                    for i in range(min(game.revealed_count, len(currentword))):
+                        hint_display[i] = currentword[i]
+                    print(f"🔍 Current Hint: {' '.join(hint_display)}")
             elif hint_choice == "n":
                 utility.clear_screen()
                 print("DID NOT USE HINT")
@@ -98,8 +121,8 @@ def Quote_builder():
     print("="*40)
 
 
-    # condition para mag loop
-    while not game.is_game_over() and not game.is_victory():
+    # condition para mag loop - infinite mode, no victory condition
+    while not game.is_game_over():
         utility.clear_screen()
         #kuha ng health saoop na galing naman sa utility
         print(" "*16+"QUOTE BUILDER MODE")
@@ -128,9 +151,14 @@ def Quote_builder():
                 utility.clear_screen()
                 print(f"\n{complete_msg}")
                 print(f"\nFULL QUOTE: {game.get_complete_quote()}")
-                print(f"\nFINAL SCORE: {game.score} ")
+                print(f"\nSCORE: {game.score} ")
+                print("\nLoading new quote...")
                 input("\nPress Enter to continue...")
-                return
+                # Reset for new quote instead of returning
+                game.load_quote()
+                game.current_word_index = 0
+                game.correct_words = [False] * len(game.words)
+                game.revealed_count = 0  # Reset hint count for new quote
             else:
                 print("\nPress any key to continue...")
                 input()
@@ -147,14 +175,38 @@ def Quote_builder():
                 return
             print(f"\nWant to use a \033[33mhint\033[0m? (y/n) - \033[33m{game.hints} hints\033[0m available")
             hint_choice = input("> ").lower().strip()
-            if hint_choice == "y" and game.hints> 0:
-                utility.clear_screen()
-                hint = game.show_hint(currentword)
-                if hint:
+            if hint_choice == "y":
+                while game.hints > 0:
+                    utility.clear_screen()
                     print(f"UNSCRAMBLE: {scrambled}")
-                    print(f"🔍 Hint: {hint}")
-            elif game.hints <= 0:
-                print("\n\033[31m===0 hints===\033[0m")
+                    if game.revealed_count > 0:
+                        hint_display = list("_" * len(currentword))
+                        for i in range(min(game.revealed_count, len(currentword))):
+                            hint_display[i] = currentword[i]
+                        print(f"🔍 Current Hint: {' '.join(hint_display)}")
+                    
+                    print(f"\n\033[33m{game.hints} hints\033[0m remaining")
+                    print("Use a hint? (y/n)")
+                    use_hint = input("> ").lower().strip()
+                    if use_hint == "y":
+                        hint = game.show_hint(currentword)
+                        if hint:
+                            utility.clear_screen()
+                            print(f"UNSCRAMBLE: {scrambled}")
+                            print(f"🔍 Hint: {hint}")
+                        else:
+                            print("\n\033[31mNo hints available\033[0m")
+                            break
+                    else:
+                        break
+                
+                utility.clear_screen()
+                print(f"UNSCRAMBLE: {scrambled}")
+                if game.revealed_count > 0:
+                    hint_display = list("_" * len(currentword))
+                    for i in range(min(game.revealed_count, len(currentword))):
+                        hint_display[i] = currentword[i]
+                    print(f"🔍 Current Hint: {' '.join(hint_display)}")
             elif hint_choice == "n":
                 utility.clear_screen()
                 print("DID NOT USE HINT")
@@ -228,14 +280,38 @@ def extreme():
                 return
             print(f"\nWant to use a \033[33mhint\033[0m? (y/n) - \033[33m{game.hints} hints\033[0m available")
             hint_choice = input("> ").lower().strip()
-            if hint_choice == "y" and game.hints> 0:
-                utility.clear_screen()
-                hint = game.show_hint(currentword)
-                if hint:
+            if hint_choice == "y":
+                while game.hints > 0:
+                    utility.clear_screen()
                     print(f"UNSCRAMBLE: {scrambled}")
-                    print(f"🔍 Hint: {hint}")
-            elif game.hints <= 0:
-                print("\n\033[31m=== no more hints left ===\033[0m")
+                    if game.revealed_count > 0:
+                        hint_display = list("_" * len(currentword))
+                        for i in range(min(game.revealed_count, len(currentword))):
+                            hint_display[i] = currentword[i]
+                        print(f"🔍 Current Hint: {' '.join(hint_display)}")
+                    
+                    print(f"\n\033[33m{game.hints} hints\033[0m remaining")
+                    print("Use a hint? (y/n)")
+                    use_hint = input("> ").lower().strip()
+                    if use_hint == "y":
+                        hint = game.show_hint(currentword)
+                        if hint:
+                            utility.clear_screen()
+                            print(f"UNSCRAMBLE: {scrambled}")
+                            print(f"🔍 Hint: {hint}")
+                        else:
+                            print("\n\033[31mNo hints available\033[0m")
+                            break
+                    else:
+                        break
+                
+                utility.clear_screen()
+                print(f"UNSCRAMBLE: {scrambled}")
+                if game.revealed_count > 0:
+                    hint_display = list("_" * len(currentword))
+                    for i in range(min(game.revealed_count, len(currentword))):
+                        hint_display[i] = currentword[i]
+                    print(f"🔍 Current Hint: {' '.join(hint_display)}")
             elif hint_choice == "n":
                 utility.clear_screen()
                 print("DID NOT USE HINT")

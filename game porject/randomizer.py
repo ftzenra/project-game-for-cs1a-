@@ -9,12 +9,9 @@ def scramble(w):
     return ''.join(letters)
 
 # Rarity system
-# Common (Health) = 60% chance
-# Rare (Hints) = 30% chance  
-# Epic (Word Pass) = 10% chance
 RARITY_CHANCES = {
-    "health": 60,      # COMMON
-    "hints": 30,       # RARE
+    "hints": 60,       # COMMON
+    "health": 30,      # RARE
     "word_pass": 10    # EPIC
 }
 
@@ -22,11 +19,11 @@ def get_reward_by_rarity():
     """Select reward based on rarity percentages using random number"""
     roll = random.randint(1, 100)
     
-    if roll <= 60:  # 60% chance to un ung rarity nya
-        return "health"
-    elif roll <= 90:  # dto 30 percent ata
+    if roll <= 60:  # 60% chance for hints (common)
         return "hints"
-    else:  # tas eto sure ako 10 percent
+    elif roll <= 90:  # 30% chance for health (rare)
+        return "health"
+    else:  # 10% chance for word pass (epic)
         return "word_pass"
 
 #gift
@@ -34,23 +31,23 @@ def gifts():
     # mga gifts lang to naka def pra madali tawagin
     reward_type = get_reward_by_rarity()
     
-    if reward_type == "health":
-        utility.health += 1
-        reward_value = 1
-        # Common reward message
-        print(f"REWARD: \033[32mCOMMON +1 Health!\033[0m")
-
-    elif reward_type == "hints":
+    if reward_type == "hints":
         utility.hints += 1
         reward_value = 1
+        # Common reward message
+        print(f"REWARD: \033[32mCOMMON\033[0m +1 Hint!")
+
+    elif reward_type == "health":
+        utility.health += 1
+        reward_value = 1
         # Rare reward message
-        print(f"REWARD: \033[33mRARE! +1 Hint!\033[0m")
+        print(f"REWARD: \033[34mRARE!\033[0m +1 Health!")
         
     elif reward_type == "word_pass":
         utility.word_pass += 1
         reward_value = 1
         
-        print(f"REWARD: \033[35m🌟🌟🌟 EPIC 🌟🌟🌟 +1 Word Pass!\033[0m")
+        print(f"REWARD: \033[35m🌟🌟🌟 EPIC 🌟🌟🌟\033[0m +1 Word Pass!")
     
     return reward_type, reward_value
 
