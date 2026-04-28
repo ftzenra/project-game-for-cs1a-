@@ -86,10 +86,12 @@ class InfiniteMode(GameMode):
         if self.current_word_index >= len(self.words):
             self.current_level += 1
             if self.current_level in self.level_words:
+                utility.clear_screen()
                 self.load_level()
-                return f"\033[35mLEVEL UP! Now at Level {self.current_level}\033[0m"
+                return f"\033[35mLEVEL UP! Now at Level {self.current_level}\033[0m\n"
             else:
-                return "\033[32mVICTORY! You completed all levels!\033[0m"
+                utility.clear_screen()
+                return "\033[32mVICTORY! You completed all levels!\033[0m\n"
         return None
     
     def is_game_over(self):

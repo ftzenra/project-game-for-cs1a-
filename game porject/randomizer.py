@@ -38,7 +38,7 @@ def gifts():
         utility.health += 1
         reward_value = 1
         # Common reward message
-        print(f"REWARD: \033[31mCOMMON +1 Health!\033[0m")
+        print(f"REWARD: \033[32mCOMMON +1 Health!\033[0m")
 
     elif reward_type == "hints":
         utility.hints += 1
