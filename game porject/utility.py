@@ -99,7 +99,7 @@ def welcome():
             \033[34mCaole, Krisha Nicole\033[0m
             \033[34mDarm, Maria Jonel\033[0m
             \033[34mMonteflacon, Jake Andrei\033[0m
-            \033[34mPimentel, Margareth Ysabel Luoise\033[0m''')
+            \033[34mPimentel, Margareth Ysabel Louise\033[0m''')
 
 #pang show ng quotes
 def show_quotes():
