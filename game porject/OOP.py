@@ -166,7 +166,7 @@ class QuoteBuilderMode(GameMode):
 class ExtremeMode(GameMode):
     def __init__(self):
         super().__init__(health=3)
-        self.hints = 1
+        self.hints = 5
         self.word_passes = 1
         utility.hints = self.hints
         utility.word_pass = self.word_passes
@@ -198,6 +198,7 @@ class ExtremeMode(GameMode):
     
     def next_word(self):
         self.current_word_index += 1
+        self.revealed_count = 0 
         
         if self.current_word_index >= len(self.words):
             return "\033[32mEXTREME CHALLENGE COMPLETE!\033[0m"
