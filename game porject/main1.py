@@ -227,7 +227,7 @@ def extreme():
                 input()
                 return
             print(f"\nWant to use a \033[33mhint\033[0m? (y/n) - \033[33m{game.hints} hints\033[0m available")
-            hint_choice = input("choice:").lower().strip()
+            hint_choice = input("> ").lower().strip()
             if hint_choice == "y" and game.hints> 0:
                 utility.clear_screen()
                 hint = game.show_hint(currentword)
@@ -243,11 +243,11 @@ def extreme():
                 print("\n\033[31mWRONG INPUT\033[0m")
 
             print(f"\nWant to use \033[35mword pass\033[0m? (y/n) - \033[35m{game.word_passes} available\033[0m")
-            pass_choice = input().lower()
+            pass_choice = input("> ").lower()
             if pass_choice == 'y' and game.word_passes > 0:
                 game.word_passes -= 1
                 utility.word_pass = game.word_passes
-                print(f" The word is: {currentword} ")
+                print(f"\nThe word is: {currentword} ")
             
             input("\nPress Enter to continue...")
 
@@ -262,7 +262,7 @@ def main():
         print("3. \033[31mEXIT\033[0m\n")
         print("="*41)
 
-        choice = input("Enter your Choice: ")
+        choice = input("\nEnter your Choice: ")
 
         if choice=="1":
             utility.clear_screen()
@@ -284,7 +284,7 @@ def main():
                         print("2. \033[33mGAME RULES\033[0m")
                         print("3. \033[35mHIGH SCORES\033[0m")
                         print("4. \033[31mBACK\033[0m\n")
-                        print("="*40)
+                        print("="*41)
                         choice2 = input("Enter your Choice: ")
                         if choice2=="1":
                             utility.clear_screen()
@@ -315,7 +315,7 @@ def main():
                         print("2. \033[33mGAME RULES\033[0m")
                         print("3. \033[35mHIGH SCORES\033[0m")
                         print("4. \033[31mBACK\033[0m\n")
-                        print("="*40)
+                        print("="*46)
                         choice2 = input("Enter your Choice: ")
                         if choice2=="1":
                             utility.clear_screen()

@@ -49,7 +49,7 @@ def rules_mode1():
                     
           \033[36mUnscramble words, and for every 5 correct words, 
     your level increases and so does the word length until 
-    you reach the 10-letter words.\033[0m\n''') 
+    you reach the 10-letter words!\033[0m\n''') 
     print("="*60)  
 
 #quote builder mode
