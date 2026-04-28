@@ -251,11 +251,11 @@ def main():
     while True:
         utility.clear_screen()
         utility.welcome()
-        print("\n======== THE WORD SCRAMBLE GAME ========\n")
+        print("\n======== SCRAMBLE GAME ========\n")
         print("1. \033[32mGAME MODES\033[0m")
         print("2. \033[33mRULES\033[0m")
         print("3. \033[31mEXIT\033[0m\n")
-        print("="*40)
+        print("="*31)
 
         choice = input("Enter your Choice: ")
 
