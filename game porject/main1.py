@@ -55,8 +55,9 @@ def classic_play():
 
             if game.is_game_over():
                 utility.clear_screen()
-                print(f"\033[31mGAME OVER!\033[0m \033[35mFinal Score: {game.score} \033[0m")
-                print(f"The correct word was: {currentword}")
+                print(f"\033[31mGAME OVER!\033[0m\n")
+                print(f"The correct word was: {currentword}\n")
+                print(f"\033[35mFinal Score: {game.score} \033[0m")
                 print("\nPress any key to go back...")
                 input()
                 return
@@ -168,8 +169,9 @@ def Quote_builder():
 
             if game.is_game_over():
                 utility.clear_screen()
-                print(f"\n\033[31mGAME OVER!\033[0m \033[35mFinal Score: {game.score} \033[0m")
-                print(f"The correct word was: {currentword}")
+                print(f"\033[31mGAME OVER!\033[0m\n")
+                print(f"The correct word was: {currentword}\n")
+                print(f"\033[35mFinal Score: {game.score} \033[0m")
                 print("\nPress any key to go back...")
                 input()
                 return
@@ -273,8 +275,9 @@ def extreme():
 
             if game.is_game_over():
                 utility.clear_screen()
-                print(f"\n\033[31mGAME OVER!\033[0m \033[35mFinal Score: {game.score} \033[0m")
-                print(f"The correct word was: {currentword}")
+                print(f"\033[31mGAME OVER!\033[0m\n")
+                print(f"The correct word was: {currentword}\n")
+                print(f"\033[35mFinal Score: {game.score} \033[0m")
                 print("\nPress any key to go back...")
                 input()
                 return
